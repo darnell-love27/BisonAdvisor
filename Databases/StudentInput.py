@@ -41,16 +41,7 @@ class Student:
         self.major = input("Enter student major: ")
         self.classification = input("Enter student classification: ")
         courses_input = input("Enter courses taken separated by commas (course_code,course_name): ")
-        self.courses = []
-        for course_input in courses_input.split(','):
-            course_data = course_input.split(',')
-            if len(course_data) == 2:
-                self.courses.append({
-                    'course_code': course_data[0].strip(),
-                    'course_name': course_data[1].strip()
-                })
-            else:
-                print(f"Invalid input: {course_input}. Expected format: course_code, course_name")
+        self.courses = courses_input.split(",")
 
 
     def __repr__(self):
