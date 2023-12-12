@@ -1,5 +1,7 @@
 import json
 import os
+from pymongo import MongoClient
+from pymongo_get_database import get_database
 
 class Course: #Course Creator
     def __init__(self, name = " ", CRN = " ", department = " ", professors = [], prereq=[]):
@@ -44,7 +46,7 @@ class Course: #Course Creator
 
     def __repr__(self):
         # String representation of Course Object
-        return f"Student(\
+        return f"Course(\
                 name={self.name}, \
                 CRN={self.studentID}, \
                 department={self.major}, \
@@ -90,7 +92,18 @@ def append_course_data(file_name):
         if choice.lower() != 'yes':
             break
 
+def pushToMongoDB():
+    file_name = "CourseDatabase.json"
+
+    with open(file_name, 'r') as file:
+        existing_data = json.load(file)
+
+    dbname = get_database()
+    collection_name = dbname["CourseData"]
+    collection_name.insert_many(existing_data)
+
 if __name__ == "__main__":
     file_name = "CourseDatabase.json"
     append_course_data(file_name)
     print(f"Course data has been appended to '{file_name}' as a JSON file.")
+    pushToMongoDB()
