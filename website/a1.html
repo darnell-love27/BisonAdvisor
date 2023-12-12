@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advisor Dashboard - BisonAdvisor</title>
+
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background */
+            margin: 0;
+            display: flex;
+        }
+
+        /* Sidebar styles */
+        .menu {
+            background-color: #f0f0f0; /* Light gray sidebar background */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .menu a {
+            color: #333; /* Dark text color */
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        /* Panel styles */
+        .content-container {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .panel-section {
+            margin-bottom: 20px;
+        }
+
+        .blue-text-display {
+            background-color: #87CEEB; /* Light blue background */
+            color: #e74c3c; /* Red font color */
+            padding: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Chat button styles */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1; /* Ensure the button is on top of other elements */
+            background-color: #e74c3c; /* Red circle background color */
+            color: #fff; /* White text color */
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .chat-menu {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background-color: #fff; /* White background color */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            padding: 10px;
+            z-index: 2; /* Ensure the menu is on top of the button */
+        }
+
+        .close-button {
+            cursor: pointer;
+            color: #333;
+            font-size: 20px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .chat-icon {
+            background-color: #87CEEB; /* Light blue circle background color */
+            color: #fff; /* White text color */
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .chat-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .inquiry-section {
+            margin-bottom: 20px;
+        }
+
+        .last-inquiry {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .inquiry-input {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .inquiry-input input {
+            flex: 1;
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        .inquiry-input button {
+            background-color: #87CEEB; /* Light blue background color */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .chatbot-response {
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .default-categories ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .default-categories li {
+            margin-bottom: 5px;
+            padding: 5px;
+            background-color: #87CEEB; /* Light blue background color */
+            color: #fff; /* White text color */
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar menu -->
+    <div class="menu">
+        <a href="a1.html">Home</a>
+        <a href="a2.html">Course Catalog</a>
+        <a href="a3.html">Students (A-Z) </a>
+        <a href="a4.html">Advisor Requests</a>
+        <a href="a5.html">Advisor Resources</a>
+        <a href="a6.html">Advisor Schedule</a>
+    </div>
+
+    <!-- Container for the content -->
+    <div class="content-container">
+        <!-- Panel content -->
+        <div class="panel-section">
+            <div class="blue-text-display">ADVISOR</div>
+            <div class="blue-text-display">NUMBER OF STUDENTS (Update with data)</div>
+        </div>
+
+        <div class="panel-section">
+            <div class="blue-text-display">TEACHING SCHEDULE</div>
+            <div class="blue-text-display">COURSE 1 (Update with data)</div>
+            <div class="blue-text-display">OFFICE HOURS 1 (Update with data)</div>
+            <div class="blue-text-display">COURSE 2 (Update with data)</div>
+            <div class="blue-text-display">OFFICE HOURS 2 (Update with data)</div>
+            <div class="blue-text-display">COURSE 3 (Update with data)</div>
+            <div class="blue-text-display">OFFICE HOURS 3 (Update with data)</div>
+        </div>
+    </div>
+
+    <!-- Chat button -->
+    <div class="chat-button" id="chatButton">
+        <div class="chat-button-text">B</div>
+    </div>
+
+    <!-- Chat menu -->
+    <div class="chat-menu" id="chatMenu">
+        <div class="close-button" onclick="toggleChatMenu()">Close &times;</div>
+        <!-- Header of the chat menu -->
+        <div class="chat-header">
+            <div class="chat-icon">B</div>
+            <div class="chat-title">BISONADVISOR</div>
+        </div>
+        <hr>
+        <!-- Inquiry section -->
+        <div class="inquiry-section">
+            <!-- Last inquiry -->
+            <div class="last-inquiry" id="lastInquiry">
+                <!-- Last inquiry content will be dynamically updated here -->
+            </div>
+            <!-- Chatbot response section -->
+            <div class="chatbot-response" id="chatbotResponse">
+                <!-- Chatbot response content will be dynamically updated here -->
+                Which student requests should be prioritized?
+                <ol>
+                    <li>According to the students currently at risk. [Student Name] would benefit greatly from                           having his minor application approved. This past fall semester, they took Intro to                                Computer Science and received an A, and has not had to take math courses since                                    transferring to Howard in the Spring 2021 semester. I can pull up the request, if need be!
+                    </li>
+                </ol>
+            </div>
+            <!-- Inquiry input section -->
+            <div class="inquiry-input">
+                <input type="text" placeholder="Ask an Advising Question" id="userInquiry">
+                <button onclick="submitInquiry()">Submit</button>
+            </div>
+        </div>
+        <!-- Default categories section -->
+        <div class="default-categories">
+            <ul>
+                <li onclick="navigateTo('Housing')">Housing</li>
+                <li onclick="navigateTo('FinancialAid')">Financial Aid</li>
+                <li onclick="navigateTo('CourseRegistration')">Course Registration</li>
+                <li onclick="navigateTo('Network')">Network</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript for the chat functionality -->
+    <script>
+        var chatMenu = document.getElementById("chatMenu");
+        var chatButton = document.getElementById("chatButton");
+        var lastInquiry = document.getElementById("lastInquiry");
+
+        chatButton.onclick = function () {
+            toggleChatMenu();
+        };
+
+        function toggleChatMenu() {
+            chatMenu.style.display = (chatMenu.style.display === "block") ? "none" : "block";
+        }
+
+        function submitInquiry() {
+            var userInquiry = document.getElementById("userInquiry").value;
+            var chatbotResponse = document.getElementById("chatbotResponse");
+
+            // Update last inquiry
+            lastInquiry.innerText = "Last Inquiry: " + userInquiry;
+
+            // Assume the chatbot generates a response based on the user's inquiry
+            var chatbotResponseText = "Chatbot response to: " + userInquiry;
+            chatbotResponse.innerHTML = chatbotResponseText;
+        }
+
+        function navigateTo(category) {
+            // Implement logic to navigate to the corresponding page for the selected category
+            alert("Navigate to " + category + " page");
+        }
+    </script>
+</body>
+</html>
