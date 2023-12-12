@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Catalog - BisonAdvisor</title>
+
+    <style>
+        /* Global styles for the entire page */
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Ensure minimum height of viewport */
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%; /* Take up the full width of the remaining space */
+            padding: 20px;
+        }
+
+        /* Global styles for the entire page */
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Course Catalog styles */
+        .course-catalog {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .catalog-header {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .search-instructions {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .viewing-courses {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .viewing-label {
+            margin-right: 10px;
+        }
+
+        .field-of-study {
+            margin-left: 10px;
+        }
+
+        /* Course Sections styles */
+        .course-sections {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .course-section {
+            text-align: center;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1; /* Ensure the button is on top of other elements */
+            background-color: #e74c3c; /* Red circle background color */
+            color: #fff; /* White text color */
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .chat-menu {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background-color: #fff; /* White background color */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            padding: 10px;
+            z-index: 2; /* Ensure the menu is on top of the button */
+        }
+
+        .close-button {
+            cursor: pointer;
+            color: #333;
+            font-size: 20px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        /* Additional styles for the chat menu content */
+        .chat-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .chat-icon {
+            background-color: #3498db; /* Blue circle background color */
+            color: #fff; /* White text color */
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .chat-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .inquiry-section {
+            margin-bottom: 20px;
+        }
+
+        .last-inquiry {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .inquiry-input {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .inquiry-input input {
+            flex: 1;
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        .inquiry-input button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .chatbot-response {
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .default-categories ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .default-categories li {
+            margin-bottom: 5px;
+            padding: 5px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        /* Additional styles for the "Return to home" button */
+        .return-button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Additional styles for the new dropdown menu */
+        .additional-dropdown {
+            margin-top: 20px;
+        }
+
+        .additional-dropdown label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .additional-dropdown select {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<!-- Actual Content  -->
+<body>
+   <!-- Container for the content -->
+   <div class="content-container">
+       <!-- Course Catalog Section -->
+       <div class="course-catalog">
+           <div class="circle">
+               <div class="catalog-header">COURSE CATALOG</div>
+               <div class="search-instructions">SEARCH FOR ANY COURSE BELOW</div>
+           </div>
+           <div class="viewing-courses">
+               <div class="viewing-label">Pick a Major/Focus:</div>
+               <div class="field-of-study">
+                   <select>
+                       <option value="science">Science</option>
+                       <option value="political-yapping">Political Yapping</option>
+                   </select>
+               </div>
+           </div>
+       </div>
+
+       <!-- Course Sections -->
+       <div class="course-sections">
+           <!-- Left Sections -->
+           <div class="course-section">
+               <div>Class Name</div>
+               <div>Date & Time</div>
+               <div>Location</div>
+           </div>
+
+           <!-- Right Sections -->
+           <div class="course-section">
+               <div>Course Number</div>
+               <a href="#">Link</a>
+               <div>
+                   <a href="#">Course Description</a>
+                   <a href="#">View Prerequisites</a>
+               </div>
+           </div>
+       </div>
+
+       <!-- "Return to home" button -->
+       <a href="a1.html" class="return-button">Return to home</a>
+
+       <!-- New Dropdown Menu -->
+       <div class="additional-dropdown">
+           <label for="additionalDropdown">Course Selection:</label>
+           <select id="additionalDropdown">
+               <!-- Options will be dynamically populated based on selected major -->
+           </select>
+       </div>
+   </div>
+
+   <!-- Chat button -->
+   <div class="chat-button" id="chatButton">
+       <div class="chat-button-text">B</div>
+   </div>
+
+   <!-- Chat menu -->
+   <div class="chat-menu" id="chatMenu">
+       <div class="close-button" onclick="toggleChatMenu()">Close &times;</div>
+
+       <!-- Header of the chat menu -->
+       <div class="chat-header">
+           <div class="chat-icon">B</div>
+           <div class="chat-title">BISONADVISOR</div>
+       </div>
+
+       <hr>
+
+       <!-- Inquiry section -->
+       <div class="inquiry-section">
+           <!-- Last inquiry -->
+           <div class="last-inquiry" id="lastInquiry">
+               <!-- Last inquiry content will be dynamically updated here -->
+           </div>
+
+           <!-- Chatbot response section -->
+           <div class="chatbot-response" id="chatbotResponse">
+               <!-- Chatbot response content will be dynamically updated here -->
+               Here are the steps for registration in your school (SOC):
+               <ol>
+                   <li>Review graduation checklist for classes needed.</li>
+                   <li>Fill a Tentative Schedule with classes you plan to take, sign and submit that form.</li>
+                   <li>The request will be sent to your advisor, and they will send you your PIN.</li>
+                   <li>Go to the Registration page: you should see your PIN.</li>
+               </ol>
+           </div>
+
+           <!-- Inquiry input section -->
+           <div class="inquiry-input">
+               <input type="text" placeholder="Ask an Advising Question" id="userInquiry">
+               <button onclick="submitInquiry()">Submit</button>
+           </div>
+       </div>
+
+       <!-- Default categories section -->
+       <div class="default-categories">
+           <ul>
+               <li onclick="navigateTo('Housing')">Housing</li>
+               <li onclick="navigateTo('FinancialAid')">Financial Aid</li>
+               <li onclick="navigateTo('CourseRegistration')">Course Registration</li>
+               <li onclick="navigateTo('Network')">Network</li>
+           </ul>
+       </div>
+   </div>
+
+   <!-- JavaScript for the chat functionality -->
+   <script>
+       var chatMenu = document.getElementById("chatMenu");
+       var chatButton = document.getElementById("chatButton");
+       var lastInquiry = document.getElementById("lastInquiry");
+
+       chatButton.onclick = function () {
+           toggleChatMenu();
+       };
+
+       function toggleChatMenu() {
+           chatMenu.style.display = (chatMenu.style.display === "block") ? "none" : "block";
+       }
+
+       function submitInquiry() {
+           var userInquiry = document.getElementById("userInquiry").value;
+           var chatbotResponse = document.getElementById("chatbotResponse");
+
+           // Update last inquiry
+           lastInquiry.innerText = "Last Inquiry: " + userInquiry;
+
+           // Assume the chatbot generates a response based on the user's inquiry
+           var chatbotResponseText = "Chatbot response to: " + userInquiry;
+           chatbotResponse.innerHTML = chatbotResponseText;
+       }
+
+       function navigateTo(category) {
+           // Implement logic to navigate to the corresponding page for the selected category
+           alert("Navigate to " + category + " page");
+       }
+   </script>
+</body>
+
+</html>
