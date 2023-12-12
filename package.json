@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  },
+  "name": "bisonadvisor",
+  "version": "1.0.0",
+  "description": "Database Website To Query Course and Student Data",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darnell-love27/BisonAdvisor.git"
+  },
+  "keywords": [
+    "Student",
+    "Course"
+  ],
+  "author": "Darnell Love, Miles Adedjouma, Jamar Bailey III, Foster Ware IV, Nathaniel Warren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darnell-love27/BisonAdvisor/issues"
+  },
+  "homepage": "https://github.com/darnell-love27/BisonAdvisor#readme"
+}
