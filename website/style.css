@@ -1,0 +1,63 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  height: 100vh;
+  background-color: #828080;
+  color: #000;
+  align-items: center;
+}
+
+.menu a {
+  display: flex;
+  width: 50%;
+  height: 11%;
+  color: #000;
+  padding: 40px;
+  margin: -10px 0;
+  text-align: center;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background-color: #555;
+}
+
+.content {
+  margin-left: 180px; /* Adjust the margin to make room for the menu */
+  padding: 20px; /* Add padding to the content area */
+}
+
+.additional-panel {
+  width: 300px;
+  background-color: #add8e6; /* Light blue background */
+  padding: 10px;
+  margin: auto; /* Center the panel horizontally */
+}
+
+.panel-section {
+  margin-bottom: 10px;
+}
+
+.panel-banner {
+  background-color: #87ceeb; /* Light blue background for the banner */
+  color: #fff; /* White text color */
+  font-weight: bold;
+  padding: 5px;
+}
+
+.panel-info {
+  background-color: #87ceeb; /* Light blue background for each course */
+  padding: 5px;
+  margin-top: 5px;
+}
