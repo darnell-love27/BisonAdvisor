@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+
+    <!-- Add your styles here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Additional styles for the chat button and menu */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1; /* Ensure the button is on top of other elements */
+            background-color: #e74c3c; /* Red circle background color */
+            color: #fff; /* White text color */
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .chat-menu {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background-color: #fff; /* White background color */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            padding: 10px;
+            z-index: 2; /* Ensure the menu is on top of the button */
+        }
+
+        .close-button {
+            cursor: pointer;
+            color: #333;
+            font-size: 20px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        /* Additional styles for the chat menu content */
+        .chat-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .chat-icon {
+            background-color: #3498db; /* Blue circle background color */
+            color: #fff; /* White text color */
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .chat-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .inquiry-section {
+            margin-bottom: 20px;
+        }
+
+        .last-inquiry {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .inquiry-input {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .inquiry-input input {
+            flex: 1;
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        .inquiry-input button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .chatbot-response {
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .default-categories ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .default-categories li {
+            margin-bottom: 5px;
+            padding: 5px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        /* Additional styles for the professor and advisor bubbles */
+        .professor-bubble, .advisor-bubble {
+            background-color: #f1f1f1;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling lines to separate sections */
+        .separator-line {
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Original Professor Section -->
+<div class="professor-bubble">
+    <div style="text-align: center;">
+        <div><b>PROFESSOR</b></div>
+        <div>Email: <span id="professorEmail">original@example.com</span></div>
+        <div>Phone: <span id="professorPhone">123-456-7890</span></div>
+    </div>
+</div>
+
+<!-- Separator Line -->
+<div class="separator-line"></div>
+
+<!-- Duplicate Professor Sections -->
+<div class="professor-bubble">
+    <div style="text-align: center;">
+        <div><b>PROFESSOR</b></div>
+        <div>Email: <span id="professorEmail2">duplicate1@example.com</span></div>
+        <div>Phone: <span id="professorPhone2">987-654-3210</span></div>
+    </div>
+</div>
+
+<!-- Separator Line -->
+<div class="separator-line"></div>
+
+<!-- Another Duplicate Professor Section -->
+<div class="professor-bubble">
+    <div style="text-align: center;">
+        <div><b>PROFESSOR</b></div>
+        <div>Email: <span id="professorEmail3">duplicate2@example.com</span></div>
+        <div>Phone: <span id="professorPhone3">555-555-5555</span></div>
+    </div>
+</div>
+
+<!-- Separator Line -->
+<div class="separator-line"></div>
+
+<!-- Another Duplicate Professor Section -->
+<div class="professor-bubble">
+    <div style="text-align: center;">
+        <div><b>PROFESSOR</b></div>
+        <div>Email: <span id="professorEmail4">duplicate3@example.com</span></div>
+        <div>Phone: <span id="professorPhone4">333-333-3333</span></div>
+    </div>
+</div>
+
+<!-- Separator Line -->
+<div class="separator-line"></div>
+
+<!-- Another Duplicate Professor Section -->
+<div class="professor-bubble">
+    <div style="text-align: center;">
+        <div><b>PROFESSOR</b></div>
+        <div>Email: <span id="professorEmail5">duplicate4@example.com</span></div>
+        <div>Phone: <span id="professorPhone5">444-444-4444</span></div>
+    </div>
+</div>
+
+<!-- Separator Line -->
+<div class="separator-line"></div>
+
+<!-- Another Duplicate Professor Section -->
+<div class="professor-bubble">
+    <div style="text-align: center;">
+        <div><b>PROFESSOR</b></div>
+        <div>Email: <span id="professorEmail6">duplicate5@example.com</span></div>
+        <div>Phone: <span id="professorPhone6">987-654-3210</span></div>
+    </div>
+</div>
+
+<!-- Separator Line -->
+<div class="separator-line"></div>
+
+<!-- Advisor Section -->
+<div class="advisor-bubble">
+    <div style="text-align: center;">
+        <div><b>ADVISOR</b></div>
+        <div>Email: <span id="advisorEmail">advisor@example.com</span></div>
+        <div>Phone: <span id="advisorPhone">987-654-3210</span></div>
+    </div>
+</div>
+
+<!-- Chat Button and Menu -->
+<div class="chat-button" id="chatButton">
+    <div class="chat-button-text">B</div>
+</div>
+
+<div class="chat-menu" id="chatMenu">
+    <div class="close-button" onclick="toggleChatMenu()">Close &times;</div>
+
+    <!-- Header of the chat menu -->
+    <div class="chat-header">
+        <div class="chat-icon">B</div>
+        <div class="chat-title">BISONADVISOR</div>
+    </div>
+
+    <hr>
+
+    <!-- Inquiry section -->
+    <div class="inquiry-section">
+        <!-- Last inquiry -->
+        <div class="last-inquiry" id="lastInquiry">
+            <!-- Last inquiry content will be dynamically updated here -->
+        </div>
+
+        <!-- Chatbot response section -->
+        <div class="chatbot-response" id="chatbotResponse">
+            <!-- Chatbot response content will be dynamically updated here -->
+            Here are the steps for registration in your school (SOC):
+            <ol>
+                <li>Review graduation checklist for classes needed.</li>
+                <li>Fill a Tentative Schedule with classes you plan to take, sign and submit that form.</li>
+                <li>The request will be sent to your advisor, and they will send you your PIN.</li>
+                <li>Go to the Registration page: you should see your PIN.</li>
+            </ol>
+        </div>
+
+        <!-- Inquiry input section -->
+        <div class="inquiry-input">
+            <input type="text" placeholder="Ask an Advising Question" id="userInquiry">
+            <button onclick="submitInquiry()">Submit</button>
+        </div>
+    </div>
+
+    <!-- Default categories section -->
+    <div class="default-categories">
+        <ul>
+            <li onclick="navigateTo('Housing')">Housing</li>
+            <li onclick="navigateTo('FinancialAid')">Financial Aid</li>
+            <li onclick="navigateTo('CourseRegistration')">Course Registration</li>
+            <li onclick="navigateTo('Network')">Network</li>
+        </ul>
+    </div>
+</div>
+
+<!-- JavaScript for the chat functionality -->
+<script>
+    var chatMenu = document.getElementById("chatMenu");
+    var chatButton = document.getElementById("chatButton");
+    var lastInquiry = document.getElementById("lastInquiry");
+
+    chatButton.onclick = function () {
+        toggleChatMenu();
+    };
+
+    function toggleChatMenu() {
+        chatMenu.style.display = (chatMenu.style.display === "block") ? "none" : "block";
+    }
+
+    function submitInquiry() {
+        var userInquiry = document.getElementById("userInquiry").value;
+        var chatbotResponse = document.getElementById("chatbotResponse");
+
+        // Update last inquiry
+        lastInquiry.innerText = "Last Inquiry: " + userInquiry;
+
+        // Assume the chatbot generates a response based on the user's inquiry
+        var chatbotResponseText = "Chatbot response to: " + userInquiry;
+        chatbotResponse.innerHTML = chatbotResponseText;
+    }
+
+    function navigateTo(category) {
+        // Implement logic to navigate to the corresponding page for the selected category
+        alert("Navigate to " + category + " page");
+    }
+</script>
+
+<!-- Return to Home Button -->
+<div style="position: fixed; bottom: 20px; left: 20px;">
+    <a href="s1.html" class="return-home-button">RETURN TO HOME</a>
+</div>
+
+</body>
+</html>
