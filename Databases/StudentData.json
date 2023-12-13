@@ -5,8 +5,9 @@
         "major": "Computer Science",
         "classification": "Junior",
         "courses": [
-            "Intro to Computer Science",
-            "Intro to Cybersecurity I"
+            "Computer Organization I",
+            "Linear Algebra",
+            "Discrete Structures"
         ]
     },
     {
@@ -16,7 +17,7 @@
         "classification": "Junior",
         "courses": [
             "Intro to Computer Science",
-            "Intro to Cybersecurity I"
+            "Intro to Computer Networks",
         ]
     },
     {
@@ -25,18 +26,19 @@
         "major": "Computer Science",
         "classification": "Junior",
         "courses": [
-            "Intro to Computer Science",
-            "Intro to Cybersecurity I"
+            "Fundamentals of Algorithm",
+            "Computer Science III",
+            "Exploring Computer Science"
         ]
     },
     {
         "name": "Nathaniel Warren",
         "studentID": "@02886773",
-        "major": "Computer Science",
+        "major": "Journalism",
         "classification": "Junior",
         "courses": [
-            "Intro to Computer Science",
-            "Intro to Cybersecurity I"
+            "Mobile App Development",
+            "Software Engineering"
         ]
     },
     {
@@ -46,7 +48,8 @@
         "classification": "Junior",
         "courses": [
             "Intro to Computer Science",
-            "Intro to Cybersecurity I"
+            "Intro to Cybersecurity I",
+            "Computer Organization II"
         ]
     }
 ]
