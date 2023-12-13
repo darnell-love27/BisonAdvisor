@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- This is the login page. Adjust accordingly with backend, aka see bottom for what's needed. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BisonAdvisor</title>
+
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-circle {
+            background-color: #3498db;
+            color: #e74c3c;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .greeting {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff; /* White background for the input container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for the container */
+        }
+
+        .input-bubble {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .input-label {
+            margin-right: 10px;
+        }
+
+        .input-field {
+            padding: 5px;
+        }
+
+        .login-button {
+            background-color: #3498db;
+            color: #e74c3c;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<!-- Actual Content  -->
+<body>
+    <div class="logo">
+        <div class="logo-circle">B</div>
+        <div class="logo-text">BISONADVISOR</div>
+    </div>
+
+    <div class="greeting">HELLO BISON!</div>
+
+    <div class="input-container">
+        <div class="input-bubble">
+            <div class="input-label">Email:</div>
+            <input type="text" placeholder="Enter your email" id="emailInput" class="input-field">
+        </div>
+
+        <div class="input-bubble">
+            <div class="input-label">Password:</div>
+            <input type="password" placeholder="Enter your password" id="passwordInput" class="input-field">
+        </div>
+
+        <button class="login-button" onclick="validateLogin()">LOGIN</button>
+
+        <div class="error-message" id="errorMessage"></div>
+    </div>
+
+    <script>
+        function validateLogin() {
+            var email = document.getElementById("emailInput").value.toLowerCase();
+            var errorMessage = document.getElementById("errorMessage");
+
+            if (email.endsWith("@howard.edu") && !email.endsWith("bison.howard.edu")) {
+                // Valid email, redirect to a1.html
+                window.location.href = "a1.html";
+            } else if (email.endsWith("bison.howard.edu")) {
+                // Valid email, redirect to s1.html
+                window.location.href = "s1.html";
+            } else {
+                // Invalid email, display error message
+                errorMessage.innerText = "Invalid email.";
+            }
+        }
+    </script>
+</body>
+
+</html>
