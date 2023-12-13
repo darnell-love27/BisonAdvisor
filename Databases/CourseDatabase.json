@@ -1,1 +1,66 @@
-
+[
+    {
+        "name": "Computer Organization I",
+        "Course Reference Number": "16279",
+        "Department": "Computer Science",
+        "Professors": "Jiang Li",
+        "Prerequsite Courses": [
+            "Computer Science I"
+        ]
+    },
+    {
+        "name": "Intro to Computer Science",
+        "Course Reference Number": "16274",
+        "Department": "Computer Science",
+        "Professors": "Torrance Fennell",
+        "Prerequsite Courses": [
+            "Intro to Computer Science"
+        ]
+    },
+    {
+        "name": "Computer Science I",
+        "Course Reference Number": "14154",
+        "Department": "Computer Science",
+        "Professors": "Anietie U Andy",
+        "Prerequsite Courses": [
+            "Intro to Computer Science"
+        ]
+    },
+    {
+        "name": "Linux Lab",
+        "Course Reference Number": "16781",
+        "Department": "Computer Science",
+        "Professors": "Linewi Niu",
+        "Prerequsite Courses": [
+            "Computer Organization I",
+            " Theory of Computation"
+        ]
+    },
+    {
+        "name": "Large Scale Programming ",
+        "Course Reference Number": "14218",
+        "Department": "Computer Science",
+        "Professors": "Bernard Woolfolk",
+        "Prerequsite Courses": [
+            "Computer Science II"
+        ]
+    },
+    {
+        "name": "Cloud Computing",
+        "Course Reference Number": "16280",
+        "Department": "Computer Science",
+        "Professors": "Guy M. Lingani",
+        "Prerequsite Courses": [
+            "None"
+        ]
+    },
+    {
+        "name": "Mobile Application Development",
+        "Course Reference Number": "15512",
+        "Department": "Computer Science",
+        "Professors": "Vijay Chaudhary",
+        "Prerequsite Courses": [
+            "Computer Science III"
+        ]
+    }
+]
