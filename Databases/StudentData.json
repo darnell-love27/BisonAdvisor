@@ -1,1 +1,52 @@
-
+[
+    {
+        "name": "Darnell Love",
+        "studentID": "@03042537",
+        "major": "Computer Science",
+        "classification": "Junior",
+        "courses": [
+            "Intro to Computer Science",
+            "Intro to Cybersecurity I"
+        ]
+    },
+    {
+        "name": "Miles Adedjouma",
+        "studentID": "@02978459",
+        "major": "Computer Science",
+        "classification": "Junior",
+        "courses": [
+            "Intro to Computer Science",
+            "Intro to Cybersecurity I"
+        ]
+    },
+    {
+        "name": "Jamar Bailey III",
+        "studentID": "@03028662",
+        "major": "Computer Science",
+        "classification": "Junior",
+        "courses": [
+            "Intro to Computer Science",
+            "Intro to Cybersecurity I"
+        ]
+    },
+    {
+        "name": "Nathaniel Warren",
+        "studentID": "@02886773",
+        "major": "Computer Science",
+        "classification": "Junior",
+        "courses": [
+            "Intro to Computer Science",
+            "Intro to Cybersecurity I"
+        ]
+    },
+    {
+        "name": "Foster Ware IV",
+        "studentID": "@02954829",
+        "major": "Computer Science",
+        "classification": "Junior",
+        "courses": [
+            "Intro to Computer Science",
+            "Intro to Cybersecurity I"
+        ]
+    }
+]
